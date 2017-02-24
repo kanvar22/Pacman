@@ -3,42 +3,36 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class GamePanel extends JPanel implements ActionListener, KeyListener{
-Timer timer;
+public class GamePanel extends JPanel {
+	
+	public static BufferedImage GhostImg;
+	public static BufferedImage pacmanImg;
+	public static BufferedImage MazeImg;
+GameObject object;
 
 	public GamePanel(){
-	timer = new Timer(1000/60, this);
+		try {
+			GhostImg = ImageIO.read(this.getClass().getResourceAsStream("Ghost.png"));
+			pacmanImg = ImageIO.read(this.getClass().getResourceAsStream("pacman.png"));
+			MazeImg = ImageIO.read(this.getClass().getResourceAsStream("Maze.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	object = new Player();
 }
-public void startGame(){
-	timer.start();
-}
+
 public void paintComponent(Graphics g){
-	g.fillRect(10, 10, 100, 100);
+	object.draw(g);
 
 }
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		repaint();
-	}
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		System.out.println("keyTyped");
-	}
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		System.out.println("keyPressed");
-	}
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		System.out.println("keyReleased");
-	}
+	
 }
