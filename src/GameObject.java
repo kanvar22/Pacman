@@ -6,14 +6,14 @@ public class GameObject {
 	int width;
 	int height;
 	
-public GameObject(){
-width = 100;
-height = 100;
-}
-void update(){
+	public GameObject(){
+		width = 100;
+		height = 100;
+	}
+	void update(){
 	
-}
-void draw(Graphics g){
-	g.fillRect(x, y, width, height);
-}
+	}
+	void draw(Graphics g){
+		g.fillRect(x, y, width, height);
+	}
 }

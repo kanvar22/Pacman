@@ -1,11 +1,9 @@
+/Controller.class
 /GameObject.class
 /GamePanel.class
+/Ghost.class
 /Ghost.png
 /Maze.png
 /Pacman.class
-/Controler.class
-/Controller.class
-/PacManC.class
-/Ghost.class
-/pacman.png
 /Player.class
+/pacman.png

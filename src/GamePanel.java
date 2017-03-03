@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +16,7 @@ public class GamePanel extends JPanel {
 	public static BufferedImage GhostImg;
 	public static BufferedImage pacmanImg;
 	public static BufferedImage MazeImg;
-GameObject object;
+	GameObject object;
 
 	public GamePanel(){
 		try {
@@ -26,13 +27,15 @@ GameObject object;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	object = new Player();
-}
+		object = new Player();
+	}
 
-public void paintComponent(Graphics g){
-	object.draw(g);
-
-}
+	public void paintComponent(Graphics g){
+		g.setColor(Color.white);
+		g.fillRect(0, 0, 1000, 1000);
+		object.draw(g);
+		System.out.println("paint");
+	}
 
 	
 }

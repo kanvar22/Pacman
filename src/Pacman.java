@@ -4,14 +4,14 @@ public class Pacman {
 JFrame frame;
 final int width = 961;
 final int height = 488;
-GamePanel game;
+GamePanel view;
 Controller controller;
 static Pacman pacman;
 	
 	public Pacman(){
 		frame = new JFrame();
-		controller = new Controller();
-		game = new GamePanel();
+		view = new GamePanel();
+		controller = new Controller(view);
 		setup();
 }
 	public static void main(String [] args) {
@@ -19,7 +19,7 @@ static Pacman pacman;
 	}
 	
 	public void setup (){
-		frame.add(game);
+		frame.add(view);
 		controller.startGame();
 		frame.addKeyListener(controller);
 		frame.setSize(width, height);
