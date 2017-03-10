@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 public class Pacman {
 JFrame frame;
 final int width = 961;
-final int height = 488;
+final int height = 510;
 GamePanel view;
 Controller controller;
 static Pacman pacman;
@@ -20,10 +20,10 @@ static Pacman pacman;
 	
 	public void setup (){
 		frame.add(view);
-		controller.startGame();
 		frame.addKeyListener(controller);
 		frame.setSize(width, height);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		controller.startGame();
 	}
 }

@@ -12,12 +12,13 @@ public class Controller implements ActionListener, KeyListener {
 
 	public Controller() {
 		timer = new Timer(1000 / 60, this);
-		object = new Player();
+		
 
 	}
 
 	public Controller(GamePanel view) {
 		this();
+		object = view.object;
 		this.view = view;
 	}
 

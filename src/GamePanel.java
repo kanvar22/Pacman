@@ -16,13 +16,15 @@ public class GamePanel extends JPanel {
 	public static BufferedImage GhostImg;
 	public static BufferedImage pacmanImg;
 	public static BufferedImage MazeImg;
+	public static BufferedImage WallImg;
 	GameObject object;
 
 	public GamePanel(){
 		try {
 			GhostImg = ImageIO.read(this.getClass().getResourceAsStream("Ghost.png"));
-			pacmanImg = ImageIO.read(this.getClass().getResourceAsStream("pacman.png"));
+			pacmanImg = ImageIO.read(this.getClass().getResourceAsStream("Pacman.png"));
 			MazeImg = ImageIO.read(this.getClass().getResourceAsStream("Maze.png"));
+			WallImg = ImageIO.read(this.getClass().getResourceAsStream("Wall for guy.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,8 +33,9 @@ public class GamePanel extends JPanel {
 	}
 
 	public void paintComponent(Graphics g){
-		g.setColor(Color.white);
-		g.fillRect(0, 0, 1000, 1000);
+		g.setColor(Color.black);
+		g.drawImage(GamePanel.MazeImg, 0, 0, 961, 488, null);
+		g.drawImage(GamePanel.WallImg, 200, 510, 10, 10, null);
 		object.draw(g);
 		System.out.println("paint");
 	}
