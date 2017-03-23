@@ -2,8 +2,8 @@ import javax.swing.JFrame;
 
 public class Pacman {
 JFrame frame;
-final int width = 961;
-final int height = 510;
+final static int width = 961;
+final static int height = 510;
 GamePanel view;
 Controller controller;
 static Pacman pacman;

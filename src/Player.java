@@ -41,5 +41,17 @@ public static boolean up = false;
 			x = x + 1;
 		}
 		System.out.println("(" + x + ", " + y + ")");
+	if (y > Pacman.height) {
+		y = 0;
+	}
+	if (y < 0) {
+		y = Pacman.height;
+	}
+	if (x > Pacman.width) {
+		x = 0;
+	}
+	if (x < 0) {
+		x = Pacman.width;
+	}
 	}
 }
