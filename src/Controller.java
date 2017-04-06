@@ -36,13 +36,13 @@ public class Controller implements ActionListener, KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("key typed");
+
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("Key pressed");
+
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			Player.up = true;
 			Player.down = false;
@@ -72,7 +72,7 @@ public class Controller implements ActionListener, KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println(" key released");
+
 	}
 
 }

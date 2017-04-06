@@ -38,7 +38,6 @@ public class GamePanel extends JPanel {
 		g.drawImage(GamePanel.WallImg, 10, 510, 10, 10, null);
 		g.drawImage(pacmanImg, 10, 10, 2, 2, null);
 		object.draw(g);
-		System.out.println("paint");
 	}
 
 	

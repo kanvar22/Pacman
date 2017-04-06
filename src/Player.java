@@ -17,41 +17,45 @@ public static boolean up = false;
 		System.out.println("redrawn");
 		g.setColor(Color.BLACK);
 		g.drawImage(GamePanel.pacmanImg, x, y, widthP, heightP, null);
-		System.out.println("hello my name is y" + y);
-		System.out.println("hello my name is x" + x);
-	
 	}
 	void update(){
-		
+		System.out.println(x + " " + y);
+	System.out.println(	GamePanel.MazeImg.getHeight());
+		GamePanel.MazeImg.getRGB(x, y);
+		GamePanel.MazeImg.getRGB(x + 10, y);
+		GamePanel.MazeImg.getRGB(x, y + 10);
+		GamePanel.MazeImg.getRGB(x + 10, y + 10);
+		GamePanel.MazeImg.getRGB(x + 5, y);
+		GamePanel.MazeImg.getRGB(x, y + 5);
+		GamePanel.MazeImg.getRGB(x + 5, y + 10);
+		GamePanel.MazeImg.getRGB(x + 10, y + 5);
+		System.out.println(GamePanel.MazeImg.getRGB(x, y));
 		if (up == true) {
-			System.out.println("tester" + y);
-			System.out.println("Up");
 			y = y - 1;
 		}
 		if (down == true) {
-			System.out.println("Down");
+			
 			y = y + 1;
 		}
 		if (left == true) {
-			System.out.println("Left lkm ");
+			
 			x = x - 1;
 		}
 		if (right == true) {
-			System.out.println("Right");
+			
 			x = x + 1;
 		}
-		System.out.println("(" + x + ", " + y + ")");
-	if (y > Pacman.height) {
+	if (y >= GamePanel.MazeImg.getHeight() - heightP-1) {
 		y = 0;
 	}
-	if (y < 0) {
-		y = Pacman.height;
+	if (y <= 0) {
+		y = GamePanel.MazeImg.getHeight() - heightP-1;
 	}
-	if (x > Pacman.width) {
+	if (x >= GamePanel.MazeImg.getWidth() - widthP) {
 		x = 0;
 	}
-	if (x < 0) {
-		x = Pacman.width;
+	if (x <= 0) {
+		x = GamePanel.MazeImg.getWidth() - widthP;
 	}
 	}
 }
