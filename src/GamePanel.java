@@ -36,6 +36,7 @@ public class GamePanel extends JPanel {
 		g.setColor(Color.black);
 		g.drawImage(GamePanel.MazeImg, 0, 0, 961, 488, null);
 		g.drawImage(GamePanel.WallImg, 10, 510, 10, 10, null);
+		g.drawImage(GhostImg, 100, 80, 20, 20, null);
 		g.drawImage(pacmanImg, 10, 10, 2, 2, null);
 		object.draw(g);
 	}

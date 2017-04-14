@@ -8,7 +8,11 @@ public static boolean up = false;
  public static boolean left = false;
  final int widthP = 10;
  final int heightP = 10;
-
+boolean inBoundsFL = true;
+boolean inBoundsFR = true;
+boolean inBoundsBL = true;
+boolean inBoundsBR = true;
+ 
 	public Player(){
 		x = 21;
 		y = 21;
@@ -21,15 +25,18 @@ public static boolean up = false;
 	void update(){
 		System.out.println(x + " " + y);
 	System.out.println(	GamePanel.MazeImg.getHeight());
-		GamePanel.MazeImg.getRGB(x, y);
-		GamePanel.MazeImg.getRGB(x + 10, y);
-		GamePanel.MazeImg.getRGB(x, y + 10);
-		GamePanel.MazeImg.getRGB(x + 10, y + 10);
-		GamePanel.MazeImg.getRGB(x + 5, y);
-		GamePanel.MazeImg.getRGB(x, y + 5);
-		GamePanel.MazeImg.getRGB(x + 5, y + 10);
-		GamePanel.MazeImg.getRGB(x + 10, y + 5);
+
+	//for example, if pacman is heading right decrease x by 1.
+		int a = GamePanel.MazeImg.getRGB(x, y);
+		int b = GamePanel.MazeImg.getRGB(x + 10, y);
+		int c = GamePanel.MazeImg.getRGB(x, y + 10);
+		int d = GamePanel.MazeImg.getRGB(x + 10, y + 10);
 		System.out.println(GamePanel.MazeImg.getRGB(x, y));
+		
+		if (a == -16777216) {
+			inBoundsFL = true;
+		}
+		
 		if (up == true) {
 			y = y - 1;
 		}
@@ -46,16 +53,16 @@ public static boolean up = false;
 			x = x + 1;
 		}
 	if (y >= GamePanel.MazeImg.getHeight() - heightP-1) {
-		y = 0;
+		y = 1;
 	}
 	if (y <= 0) {
 		y = GamePanel.MazeImg.getHeight() - heightP-1;
 	}
-	if (x >= GamePanel.MazeImg.getWidth() - widthP) {
-		x = 0;
+	if (x >= GamePanel.MazeImg.getWidth() - widthP - 1) {
+		x = 1;
 	}
 	if (x <= 0) {
-		x = GamePanel.MazeImg.getWidth() - widthP;
+		x = GamePanel.MazeImg.getWidth() - widthP - 1;
 	}
 	}
 }
