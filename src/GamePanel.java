@@ -19,6 +19,16 @@ public class GamePanel extends JPanel {
 	public static BufferedImage WallImg;
 	public static BufferedImage CherryImg;
 	GameObject object;
+	Ghost ghost1;
+	Ghost ghost2;
+	Ghost ghost3;
+	Ghost ghost4;
+	Ghost ghost5;
+	Ghost ghost6;
+	Ghost ghost7;
+	Ghost ghost8;
+	Ghost ghost9;
+	Ghost ghost10;
 
 	public GamePanel(){
 		try {
@@ -33,6 +43,16 @@ public class GamePanel extends JPanel {
 			e.printStackTrace();
 		}
 		object = new Player();
+		ghost1 = new Ghost();
+		ghost2 = new Ghost();
+		ghost3 = new Ghost();
+		ghost4 = new Ghost();
+		ghost5 = new Ghost();
+		ghost6 = new Ghost();
+		ghost7 = new Ghost();
+		ghost8 = new Ghost();
+		ghost9 = new Ghost();
+		ghost10 = new Ghost();
 	}
 
 	public void paintComponent(Graphics g){
@@ -42,6 +62,16 @@ public class GamePanel extends JPanel {
 		//g.drawImage(GhostImg, 100, 80, 20, 20, null);
 		//g.drawImage(pacmanImg, 10, 10, 2, 2, null);
 		object.draw(g);
+		ghost1.draw(g);
+		ghost2.draw(g);
+		ghost3.draw(g);
+		ghost4.draw(g);
+		ghost5.draw(g);
+		ghost6.draw(g);
+		ghost7.draw(g);
+		ghost8.draw(g);
+		ghost9.draw(g);
+		ghost10.draw(g);
 	}
 
 	
