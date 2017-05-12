@@ -16,9 +16,13 @@ public class Ghost extends GameObject{
 	 boolean inBoundsSMR = true;
 	 boolean inBoundsBM = true;
 	 boolean inBoundsFM = true;
-	 public Ghost(){
-			x = 500;
-			y = 230;
+/*	 boolean up = false;
+	 boolean down = false;
+	 boolean left = false;
+	 boolean right = false;*/
+	 public Ghost(int x, int y){
+			this.x = x;
+			this.y = y;
 
 		}
 	 
@@ -78,8 +82,11 @@ public class Ghost extends GameObject{
 		if (h != -16777216) {
 			inBoundsBM = false;
 		}
+		System.out.println("go left");
+		x--;
 		
-		if (inBoundsFL == false && inBoundsFR ==  false) {
+		
+		/*if (inBoundsFL == false && inBoundsFR ==  false) {
 			up = false;
 		
 		}
@@ -98,8 +105,8 @@ public class Ghost extends GameObject{
 			left = false;
 		
 		}
-		
-		if (inBoundsFM == false) {
+		*/
+/*		if (inBoundsFM == false) {
 			up = false;
 		}
 		
@@ -111,13 +118,13 @@ public class Ghost extends GameObject{
 			left = false;
 		}
 		
-		if (inBoundsSMR == false) {
+		if (inBoundsSMR ==  false) {
 			right = false;
 		}
+		*/
 		
 		
-		
-		if (up == true) {
+		/*if (up == true) {
 			y = y - 1;
 		}
 		if (down == true) {
@@ -131,7 +138,7 @@ public class Ghost extends GameObject{
 		if (right == true) {
 			
 			x = x + 1;
-		}
+		}*/
 		inBoundsFL = true;
 		inBoundsFR = true;
 		inBoundsBL = true;

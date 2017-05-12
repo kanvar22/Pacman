@@ -30,6 +30,16 @@ public class Controller implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		object.update();
+		view.ghost1.update();
+		view.ghost2.update();
+		view.ghost3.update();
+		view.ghost4.update();
+		view.ghost5.update();
+		view.ghost6.update();
+		view.ghost7.update();
+		view.ghost8.update();
+		view.ghost9.update();
+		view.ghost10.update();
 		view.repaint();
 	}
 

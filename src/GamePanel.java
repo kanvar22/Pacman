@@ -43,16 +43,16 @@ public class GamePanel extends JPanel {
 			e.printStackTrace();
 		}
 		object = new Player();
-		ghost1 = new Ghost();
-		ghost2 = new Ghost();
-		ghost3 = new Ghost();
-		ghost4 = new Ghost();
-		ghost5 = new Ghost();
-		ghost6 = new Ghost();
-		ghost7 = new Ghost();
-		ghost8 = new Ghost();
-		ghost9 = new Ghost();
-		ghost10 = new Ghost();
+		ghost1 = new Ghost(500, 230);
+		ghost2 = new Ghost(551, 240);
+		ghost3 = new Ghost(543, 235);
+		ghost4 = new Ghost(561, 245);
+		ghost5 = new Ghost(512, 255);
+		ghost6 = new Ghost(524, 243);
+		ghost7 = new Ghost(538, 231);
+		ghost8 = new Ghost(551, 220);
+		ghost9 = new Ghost(543, 220);
+		ghost10 = new Ghost(521, 251);
 	}
 
 	public void paintComponent(Graphics g){
