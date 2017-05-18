@@ -16,6 +16,8 @@ public class Ghost extends GameObject{
 	 boolean inBoundsSMR = true;
 	 boolean inBoundsBM = true;
 	 boolean inBoundsFM = true;
+	 boolean left = false;
+	 boolean right = false;
 /*	 boolean up = false;
 	 boolean down = false;
 	 boolean left = false;
@@ -83,8 +85,8 @@ public class Ghost extends GameObject{
 			inBoundsBM = false;
 		}
 		System.out.println("go left");
-		x--;
-		
+		x--;              
+		System.out.println("" + );
 		
 		/*if (inBoundsFL == false && inBoundsFR ==  false) {
 			up = false;

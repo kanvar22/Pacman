@@ -19,10 +19,14 @@ boolean inBoundsSMR = true;
 boolean inBoundsBM = true;
 boolean inBoundsFM = true;
 
+
  
 	public Player(){
 		x = 21;
 		y = 21;
+	}
+	public int getX(){
+		return x;
 	}
 	void draw(Graphics g){
 		System.out.println("redrawn");
