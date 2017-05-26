@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -29,6 +30,11 @@ public class GamePanel extends JPanel {
 	Ghost ghost8;
 	Ghost ghost9;
 	Ghost ghost10;
+	Ghost ghost11;
+	Ghost ghost12;
+	Ghost ghost13;
+	Ghost ghost14;
+	Ghost ghost15;
 
 	public GamePanel(){
 		try {
@@ -42,17 +48,23 @@ public class GamePanel extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		object = new Player();
 		ghost1 = new Ghost(500, 230);
-		ghost2 = new Ghost(551, 240);
-		ghost3 = new Ghost(543, 235);
-		ghost4 = new Ghost(561, 245);
-		ghost5 = new Ghost(512, 255);
-		ghost6 = new Ghost(524, 243);
-		ghost7 = new Ghost(538, 231);
-		ghost8 = new Ghost(551, 220);
-		ghost9 = new Ghost(543, 220);
-		ghost10 = new Ghost(521, 251);
+		ghost2 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost3 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost4 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost5 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost6 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost7 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost8 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost9 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost10 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost11 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost12 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost13 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost14 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
+		ghost15 = new Ghost(new Random().nextInt(961), new Random().nextInt(510));
 	}
 
 	public void paintComponent(Graphics g){
@@ -72,6 +84,11 @@ public class GamePanel extends JPanel {
 		ghost8.draw(g);
 		ghost9.draw(g);
 		ghost10.draw(g);
+		ghost11.draw(g);
+		ghost12.draw(g);
+		ghost13.draw(g);
+		ghost14.draw(g);
+		ghost15.draw(g);
 	}
 
 	

@@ -40,6 +40,26 @@ public class Controller implements ActionListener, KeyListener {
 		view.ghost8.update();
 		view.ghost9.update();
 		view.ghost10.update();
+		view.ghost11.update();
+		view.ghost12.update();
+		view.ghost13.update();
+		view.ghost14.update();
+		view.ghost15.update();
+		view.ghost1.findPlayer(object.x, object.y);
+		view.ghost2.findPlayer(object.x, object.y);
+		view.ghost3.findPlayer(object.x, object.y);
+		view.ghost4.findPlayer(object.x, object.y);
+		view.ghost5.findPlayer(object.x, object.y);
+		view.ghost6.findPlayer(object.x, object.y);
+		view.ghost7.findPlayer(object.x, object.y);
+		view.ghost8.findPlayer(object.x, object.y);
+		view.ghost9.findPlayer(object.x, object.y);
+		view.ghost10.findPlayer(object.x, object.y);
+		view.ghost11.findPlayer(object.x, object.y);
+		view.ghost12.findPlayer(object.x, object.y);
+		view.ghost13.findPlayer(object.x, object.y);
+		view.ghost14.findPlayer(object.x, object.y);
+		view.ghost15.findPlayer(object.x, object.y);
 		view.repaint();
 	}
 

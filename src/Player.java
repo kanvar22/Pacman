@@ -2,38 +2,41 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Player extends GameObject{
+// movement variables
 public static boolean up = false;
  public static boolean down = false;
  public static boolean right = false;
  public static boolean left = false;
+ //size
  final int widthP = 8;
  final int heightP = 8;
-//Regular boolean
+//Regular boolean for color detection
 boolean inBoundsFL = true;
 boolean inBoundsFR = true;
 boolean inBoundsBL = true;
 boolean inBoundsBR = true;
-//Side Boolean
+//Side Boolean for color detection
 boolean inBoundsSML = true;
 boolean inBoundsSMR = true;
 boolean inBoundsBM = true;
 boolean inBoundsFM = true;
 
 
- 
+
 	public Player(){
+//Where Pacman starts
 		x = 21;
 		y = 21;
 	}
-	public int getX(){
-		return x;
-	}
+	
 	void draw(Graphics g){
+		//Drawing Pacman
 		System.out.println("redrawn");
 		g.setColor(Color.BLACK);
 		g.drawImage(GamePanel.pacmanImg, x, y, widthP, heightP, null);
 	}
 	void update(){
+		//Detecting if x and y show up
 		System.out.println(x + " " + y);
 	System.out.println(	GamePanel.MazeImg.getHeight());
 
@@ -48,6 +51,7 @@ boolean inBoundsFM = true;
 		int h = GamePanel.MazeImg.getRGB(x + 4, y + 8);
 		System.out.println(GamePanel.MazeImg.getRGB(x, y));
 		
+		//If sides of pacman collides with wall
 		if (a != -16777216 && b != -16777216) {
 			inBoundsFL = false;
 			inBoundsFR = false;
@@ -68,6 +72,7 @@ boolean inBoundsFM = true;
 			inBoundsFL = false;
 		}
 		
+		// if middle collides with wall
 		if (e != -16777216) {
 			inBoundsFM = false;
 		}
@@ -84,6 +89,7 @@ boolean inBoundsFM = true;
 			inBoundsBM = false;
 		}
 		
+		//set movement variables for sides
 		if (inBoundsFL == false && inBoundsFR ==  false) {
 			up = false;
 		
@@ -104,6 +110,7 @@ boolean inBoundsFM = true;
 		
 		}
 		
+		//set movement variables for middle
 		if (inBoundsFM == false) {
 			up = false;
 		}
@@ -121,7 +128,7 @@ boolean inBoundsFM = true;
 		}
 		
 		
-		
+		//Movement of Pacman
 		if (up == true) {
 			y = y - 1;
 		}
@@ -137,6 +144,7 @@ boolean inBoundsFM = true;
 			
 			x = x + 1;
 		}
+		//Variables for color detection
 		inBoundsFL = true;
 		inBoundsFR = true;
 		inBoundsBL = true;
@@ -146,7 +154,7 @@ boolean inBoundsFM = true;
 		inBoundsSML = true;
 		inBoundsBM = true;
 		
-	//Movement of Pacman
+	// Moving form one side to the other from holes
 		if (y >= GamePanel.MazeImg.getHeight() - heightP-1) {
 			y = 1;
 		}

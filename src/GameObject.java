@@ -1,8 +1,8 @@
 import java.awt.Graphics;
 
 public class GameObject {
-	int x;
-	int y;
+	public int x;
+	public int y;
 	int width;
 	int height;
 	

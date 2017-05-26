@@ -14,6 +14,7 @@ static Pacman pacman;
 		controller = new Controller(view);
 		setup();
 }
+
 	public static void main(String [] args) {
 		pacman = new Pacman();
 	}

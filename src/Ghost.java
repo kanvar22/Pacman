@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 
 
@@ -85,8 +86,7 @@ public class Ghost extends GameObject{
 			inBoundsBM = false;
 		}
 		System.out.println("go left");
-		x--;              
-		System.out.println("" + );
+
 		
 		/*if (inBoundsFL == false && inBoundsFR ==  false) {
 			up = false;
@@ -126,21 +126,18 @@ public class Ghost extends GameObject{
 		*/
 		
 		
-		/*if (up == true) {
-			y = y - 1;
+		if (y >= GamePanel.MazeImg.getHeight() - heightP-1) {
+			y = 1;
 		}
-		if (down == true) {
-			
-			y = y + 1;
+		if (y <= 0) {
+			y = GamePanel.MazeImg.getHeight() - heightP-1;
 		}
-		if (left == true) {
-			
-			x = x - 1;
+		if (x >= GamePanel.MazeImg.getWidth() - widthP - 1) {
+			x = 1;
 		}
-		if (right == true) {
-			
-			x = x + 1;
-		}*/
+		if (x <= 0) {
+			x = GamePanel.MazeImg.getWidth() - widthP - 1;
+		}
 		inBoundsFL = true;
 		inBoundsFR = true;
 		inBoundsBL = true;
@@ -151,5 +148,26 @@ public class Ghost extends GameObject{
 		inBoundsBM = true;
 		
 }
+	void findPlayer(int px, int py){
+		if (new Random().nextBoolean()) {
+		
+		if (px > x) {
+			x++;
+		}
+		if (x > px) {
+			x--;
+		}
+		}
+		else {
+			
+		
+		if (py > y) {
+			y ++;
+		}
+		 if (y > py) {
+			y--;
+		}
+		}
+	}
 
 }
