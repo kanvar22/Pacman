@@ -5,8 +5,8 @@ import java.util.Random;
 
 
 public class Ghost extends GameObject{
-	 final int widthP = 10;
-	 final int heightP = 10;
+	 static final int widthP = 10;
+	 static final int heightP = 10;
 	//Regular boolean
 	 boolean inBoundsFL = true;
 	 boolean inBoundsFR = true;
