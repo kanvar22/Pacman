@@ -25,41 +25,46 @@ public class Controller implements ActionListener, KeyListener {
 	public void startGame() {
 		timer.start();
 	}
-
+public void ghostUpdate (){
+	view.ghost1.update();
+	view.ghost2.update();
+	view.ghost3.update();
+	view.ghost4.update();
+	view.ghost5.update();
+	view.ghost6.update();
+	view.ghost7.update();
+	view.ghost8.update();
+	view.ghost9.update();
+	view.ghost10.update();
+	view.ghost11.update();
+	view.ghost12.update();
+	view.ghost13.update();
+	view.ghost14.update();
+	view.ghost15.update();
+}
+public void trackPacman(){
+	view.ghost1.findPlayer(object.x, object.y);
+	view.ghost2.findPlayer(object.x, object.y);
+	view.ghost3.findPlayer(object.x, object.y);
+	view.ghost4.findPlayer(object.x, object.y);
+	view.ghost5.findPlayer(object.x, object.y);
+	view.ghost6.findPlayer(object.x, object.y);
+	view.ghost7.findPlayer(object.x, object.y);
+	view.ghost8.findPlayer(object.x, object.y);
+	view.ghost9.findPlayer(object.x, object.y);
+	view.ghost10.findPlayer(object.x, object.y);
+	view.ghost11.findPlayer(object.x, object.y);
+	view.ghost12.findPlayer(object.x, object.y);
+	view.ghost13.findPlayer(object.x, object.y);
+	view.ghost14.findPlayer(object.x, object.y);
+	view.ghost15.findPlayer(object.x, object.y);
+}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		object.update();
-		view.ghost1.update();
-		view.ghost2.update();
-		view.ghost3.update();
-		view.ghost4.update();
-		view.ghost5.update();
-		view.ghost6.update();
-		view.ghost7.update();
-		view.ghost8.update();
-		view.ghost9.update();
-		view.ghost10.update();
-		view.ghost11.update();
-		view.ghost12.update();
-		view.ghost13.update();
-		view.ghost14.update();
-		view.ghost15.update();
-		view.ghost1.findPlayer(object.x, object.y);
-		view.ghost2.findPlayer(object.x, object.y);
-		view.ghost3.findPlayer(object.x, object.y);
-		view.ghost4.findPlayer(object.x, object.y);
-		view.ghost5.findPlayer(object.x, object.y);
-		view.ghost6.findPlayer(object.x, object.y);
-		view.ghost7.findPlayer(object.x, object.y);
-		view.ghost8.findPlayer(object.x, object.y);
-		view.ghost9.findPlayer(object.x, object.y);
-		view.ghost10.findPlayer(object.x, object.y);
-		view.ghost11.findPlayer(object.x, object.y);
-		view.ghost12.findPlayer(object.x, object.y);
-		view.ghost13.findPlayer(object.x, object.y);
-		view.ghost14.findPlayer(object.x, object.y);
-		view.ghost15.findPlayer(object.x, object.y);
+		ghostUpdate();
+		trackPacman();
 		view.repaint();
 	}
 
