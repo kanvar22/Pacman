@@ -59,6 +59,32 @@ public void trackPacman(){
 	view.ghost14.findPlayer(object.x, object.y);
 	view.ghost15.findPlayer(object.x, object.y);
 }
+public void movingPacman(KeyEvent e){
+	if (e.getKeyCode() == KeyEvent.VK_UP) {
+		Player.up = true;
+		Player.down = false;
+		Player.left = false;
+		Player.right = false;
+	}
+	if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		Player.down = true;
+		Player.left = false;
+		Player.right = false;
+		Player.up = false;
+	}
+	if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		Player.left = true;
+		Player.right = false;
+		Player.up = false;
+		Player.down = false;
+	}
+	if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		Player.right = true;
+		Player.up = false;
+		Player.down = false;
+		Player.left = false;
+	}
+}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -78,30 +104,7 @@ public void trackPacman(){
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			Player.up = true;
-			Player.down = false;
-			Player.left = false;
-			Player.right = false;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			Player.down = true;
-			Player.left = false;
-			Player.right = false;
-			Player.up = false;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			Player.left = true;
-			Player.right = false;
-			Player.up = false;
-			Player.down = false;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			Player.right = true;
-			Player.up = false;
-			Player.down = false;
-			Player.left = false;
-		}
+	movingPacman(e);
 	}
 
 	@Override

@@ -20,6 +20,7 @@ public class GamePanel extends JPanel {
 	public static BufferedImage WallImg;
 	public static BufferedImage CoinImg;
 	GameObject object;
+	ObjectManager manager;
 	Ghost ghost1;
 	Ghost ghost2;
 	Ghost ghost3;
@@ -38,7 +39,23 @@ public class GamePanel extends JPanel {
 	Coin coin;
 	int mazeHeight = 488 - Ghost.heightP;
 	int mazeWidth = 961   - Ghost.widthP;
-
+public void ghosts(){
+	ghost1 = new Ghost(500, 230);
+	ghost2 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost3 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost4 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost5 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost6 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost7 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost8 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost9 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost10 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost11 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost12 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost13 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost14 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost15 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+}
 	public GamePanel(){
 		try {
 			GhostImg = ImageIO.read(this.getClass().getResourceAsStream("Ghost.png"));
@@ -46,6 +63,7 @@ public class GamePanel extends JPanel {
 			MazeImg = ImageIO.read(this.getClass().getResourceAsStream("Maze.png"));
 			WallImg = ImageIO.read(this.getClass().getResourceAsStream("Wall for guy.png"));
 			CoinImg = ImageIO.read(this.getClass().getResourceAsStream("Coin.png"));
+			//manager.addObject(); 
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -53,25 +71,28 @@ public class GamePanel extends JPanel {
 		}
 		
 		object = new Player();
+		manager = new ObjectManager();
 		System.out.println("width"+ MazeImg.getWidth());
-		ghost1 = new Ghost(500, 230);
-		ghost2 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost3 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost4 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost5 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost6 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost7 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost8 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost9 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost10 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost11 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost12 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost13 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost14 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-		ghost15 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+		ghosts();
 		coin = new Coin(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
 	}
-
+public void drawingGhost(Graphics g){
+	ghost1.draw(g);
+	ghost2.draw(g);
+	ghost3.draw(g);
+	ghost4.draw(g);
+	ghost5.draw(g);
+	ghost6.draw(g);
+	ghost7.draw(g);
+	ghost8.draw(g);
+	ghost9.draw(g);
+	ghost10.draw(g);
+	ghost11.draw(g);
+	ghost12.draw(g);
+	ghost13.draw(g);
+	ghost14.draw(g);
+	ghost15.draw(g);
+}
 	public void paintComponent(Graphics g){
 		g.setColor(Color.black);
 		g.drawImage(GamePanel.MazeImg, 0, 0, 961, 488, null);
@@ -79,21 +100,7 @@ public class GamePanel extends JPanel {
 		//g.drawImage(GhostImg, 100, 80, 20, 20, null);
 		//g.drawImage(pacmanImg, 10, 10, 2, 2, null);
 		object.draw(g);
-		ghost1.draw(g);
-		ghost2.draw(g);
-		ghost3.draw(g);
-		ghost4.draw(g);
-		ghost5.draw(g);
-		ghost6.draw(g);
-		ghost7.draw(g);
-		ghost8.draw(g);
-		ghost9.draw(g);
-		ghost10.draw(g);
-		ghost11.draw(g);
-		ghost12.draw(g);
-		ghost13.draw(g);
-		ghost14.draw(g);
-		ghost15.draw(g);
+		drawingGhost(g);
 		coin.draw(g);
 	}
 

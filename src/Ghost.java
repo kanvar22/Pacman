@@ -35,6 +35,7 @@ public class Ghost extends GameObject{
 		g.drawImage(GamePanel.GhostImg, x, y, widthP, heightP, null);
 
 	}
+
 	void update(){
 		System.out.println(x + " " + y);
 	System.out.println(	GamePanel.MazeImg.getHeight());
