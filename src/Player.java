@@ -1,5 +1,8 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import javax.swing.JPanel;
 
 public class Player extends GameObject{
 // movement variables
@@ -10,6 +13,7 @@ public static boolean up = false;
  //size
  final int widthP = 8;
  final int heightP = 8;
+
 //Regular boolean for color detection
 boolean inBoundsFL = true;
 boolean inBoundsFR = true;
@@ -27,18 +31,25 @@ boolean inBoundsFM = true;
 //Where Pacman starts
 		x = 21;
 		y = 21;
+		collisionBox = new Rectangle();
 	}
 	
 	void draw(Graphics g){
 		//Drawing Pacman
-		System.out.println("redrawn");
+		//System.out.println("redrawn");
 		g.setColor(Color.BLACK);
+		if (isAlive == false) {
+			g.fillRect(0, 0, 1000, 1000);
+	
+		}else{
 		g.drawImage(GamePanel.pacmanImg, x, y, widthP, heightP, null);
 	}
+	}
 	void update(){
+		collisionBox.setBounds(x, y, widthP, heightP);
 		//Detecting if x and y show up
-		System.out.println(x + " " + y);
-	System.out.println(	GamePanel.MazeImg.getHeight());
+		//System.out.println(x + " " + y);
+	//System.out.println(	GamePanel.MazeImg.getHeight());
 
 	//Color Detection
 		int a = GamePanel.MazeImg.getRGB(x, y);
@@ -49,7 +60,7 @@ boolean inBoundsFM = true;
 		int f = GamePanel.MazeImg.getRGB(x , y + 4);
 		int g = GamePanel.MazeImg.getRGB(x + 8, y + 4);
 		int h = GamePanel.MazeImg.getRGB(x + 4, y + 8);
-		System.out.println(GamePanel.MazeImg.getRGB(x, y));
+		//System.out.println(GamePanel.MazeImg.getRGB(x, y));
 		
 		//If sides of pacman collides with wall
 		if (a != -16777216 && b != -16777216) {

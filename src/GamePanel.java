@@ -37,8 +37,8 @@ public class GamePanel extends JPanel {
 	Ghost ghost14;
 	Ghost ghost15;
 	Coin coin;
-	int mazeHeight = 488 - Ghost.heightP;
-	int mazeWidth = 961   - Ghost.widthP;
+	int mazeHeight = 488 - Ghost.heightG;
+	int mazeWidth = 961   - Ghost.widthG;
 public void ghosts(){
 	ghost1 = new Ghost(500, 230);
 	ghost2 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
@@ -72,7 +72,7 @@ public void ghosts(){
 		
 		object = new Player();
 		manager = new ObjectManager();
-		System.out.println("width"+ MazeImg.getWidth());
+		//System.out.println("width"+ MazeImg.getWidth());
 		ghosts();
 		coin = new Coin(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
 	}
@@ -103,6 +103,68 @@ public void drawingGhost(Graphics g){
 		drawingGhost(g);
 		coin.draw(g);
 	}
+public void update(){
+	if (ghost1.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called1");
+	}
+	if (ghost2.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called2");
+	}
+	if (ghost3.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called3");
+	}
+	if (ghost4.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called4");
+	}
+	if (ghost5.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called5");
+	}
+	if (ghost6.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called6");
+	}
+	if (ghost7.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called7");
+	}
+	if (ghost8.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called8");
+	}
+	if (ghost9.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called9");
+	}
+	if (ghost10.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called10");
+	}
+	if (ghost11.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called11");
+	}
+	if (ghost12.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called12");
+	}
+	if (ghost13.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called13");
+	}
+	if (ghost14.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called14");
+	}
+	if (ghost15.collisionBox.intersects(object.collisionBox)) {
+		object.isAlive = false;
+		System.out.println("Called15");
+	}
 
+}
 	
 }

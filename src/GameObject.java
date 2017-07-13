@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class GameObject {
 	public int x;
@@ -6,6 +7,7 @@ public class GameObject {
 	int width;
 	int height;
 	boolean isAlive = true;
+	Rectangle collisionBox;
 	
 	public GameObject(){
 		width = 100;

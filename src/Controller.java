@@ -92,6 +92,7 @@ public void movingPacman(KeyEvent e){
 		ghostUpdate();
 		trackPacman();
 		view.repaint();
+		view.update();
 	}
 
 	@Override
