@@ -39,7 +39,7 @@ boolean inBoundsFM = true;
 		//System.out.println("redrawn");
 		g.setColor(Color.BLACK);
 		if (isAlive == false) {
-			g.fillRect(0, 0, 1000, 1000);
+			System.exit(0);
 	
 		}else{
 		g.drawImage(GamePanel.pacmanImg, x, y, widthP, heightP, null);

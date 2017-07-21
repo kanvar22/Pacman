@@ -9,6 +9,7 @@ public class Controller implements ActionListener, KeyListener {
 	Timer timer;
 	GameObject object;
 	GamePanel view;
+	int countDown = 0;
 
 	public Controller() {
 		timer = new Timer(1000 / 60, this);
@@ -26,6 +27,7 @@ public class Controller implements ActionListener, KeyListener {
 		timer.start();
 	}
 public void ghostUpdate (){
+
 	view.ghost1.update();
 	view.ghost2.update();
 	view.ghost3.update();
@@ -75,7 +77,7 @@ public void movingPacman(KeyEvent e){
 	if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 		Player.left = true;
 		Player.right = false;
-		Player.up = false;
+		Player.up    = false;
 		Player.down = false;
 	}
 	if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -93,6 +95,17 @@ public void movingPacman(KeyEvent e){
 		trackPacman();
 		view.repaint();
 		view.update();
+		countDown++;
+		if (countDown% 60 == 0) {
+			view.countdownTimer();
+		}
+		if (countDown > 20*60) {
+			System.exit(0);
+			
+		}
+		if (view.coinCollision()) {
+			countDown = 0;
+		}
 	}
 
 	@Override

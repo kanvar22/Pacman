@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,22 +40,25 @@ public class GamePanel extends JPanel {
 	Coin coin;
 	int mazeHeight = 488 - Ghost.heightG;
 	int mazeWidth = 961   - Ghost.widthG;
+	int spawnPoint = mazeWidth/2;
+	int timerCountDown = 20;
+	
 public void ghosts(){
 	ghost1 = new Ghost(500, 230);
-	ghost2 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost3 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost4 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost5 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost6 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost7 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost8 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost9 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost10 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost11 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost12 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost13 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost14 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
-	ghost15 = new Ghost(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+	ghost2 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost3 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost4 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost5 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost6 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost7 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost8 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost9 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost10 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost11 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost12 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost13 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost14 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	ghost15 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
 }
 	public GamePanel(){
 		try {
@@ -102,8 +106,12 @@ public void drawingGhost(Graphics g){
 		object.draw(g);
 		drawingGhost(g);
 		coin.draw(g);
+		displayTimer(g);
 	}
 public void update(){
+	coinCollision();
+	
+	
 	if (ghost1.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
 		System.out.println("Called1");
@@ -164,7 +172,25 @@ public void update(){
 		object.isAlive = false;
 		System.out.println("Called15");
 	}
+	
 
 }
-	
+	boolean coinCollision(){
+		if (object.collisionBox.intersects(coin.collisionBox)) {
+			return true;
+		}	
+		else {
+			return false;
+		}
+	}
+	void countdownTimer (){
+		timerCountDown -= 1;
+	}
+	void displayTimer(Graphics g){
+		
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Arial", Font.BOLD, 20));
+		g.drawString("" + timerCountDown, 880, 30);
+		
+	}
 }
