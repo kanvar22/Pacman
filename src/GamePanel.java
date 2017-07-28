@@ -20,6 +20,7 @@ public class GamePanel extends JPanel {
 	public static BufferedImage MazeImg;
 	public static BufferedImage WallImg;
 	public static BufferedImage CoinImg;
+	public static BufferedImage CherryImg;
 	GameObject object;
 	ObjectManager manager;
 	Ghost ghost1;
@@ -38,10 +39,11 @@ public class GamePanel extends JPanel {
 	Ghost ghost14;
 	Ghost ghost15;
 	Coin coin;
+	Cherry cherry;
 	int mazeHeight = 488 - Ghost.heightG;
 	int mazeWidth = 961   - Ghost.widthG;
 	int spawnPoint = mazeWidth/2;
-	int timerCountDown = 20;
+	int timerCountDown = 25;
 	
 public void ghosts(){
 	ghost1 = new Ghost(500, 230);
@@ -59,6 +61,7 @@ public void ghosts(){
 	ghost13 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
 	ghost14 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
 	ghost15 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+	
 }
 	public GamePanel(){
 		try {
@@ -67,6 +70,7 @@ public void ghosts(){
 			MazeImg = ImageIO.read(this.getClass().getResourceAsStream("Maze.png"));
 			WallImg = ImageIO.read(this.getClass().getResourceAsStream("Wall for guy.png"));
 			CoinImg = ImageIO.read(this.getClass().getResourceAsStream("Coin.png"));
+			CherryImg = ImageIO.read(this.getClass().getResourceAsStream("Cherry.png"));
 			//manager.addObject(); 
 			
 		} catch (IOException e) {
@@ -79,6 +83,8 @@ public void ghosts(){
 		//System.out.println("width"+ MazeImg.getWidth());
 		ghosts();
 		coin = new Coin(new Random().nextInt(mazeWidth), new Random().nextInt(mazeHeight));
+		cherry = new Cherry(new Random().nextInt(mazeWidth),new Random().nextInt(mazeHeight));
+		
 	}
 public void drawingGhost(Graphics g){
 	ghost1.draw(g);
@@ -107,6 +113,7 @@ public void drawingGhost(Graphics g){
 		drawingGhost(g);
 		coin.draw(g);
 		displayTimer(g);
+		cherry.draw(g);
 	}
 public void update(){
 	coinCollision();
@@ -173,7 +180,6 @@ public void update(){
 		System.out.println("Called15");
 	}
 	
-
 }
 	boolean coinCollision(){
 		if (object.collisionBox.intersects(coin.collisionBox)) {

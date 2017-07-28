@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.Timer;
 
-public class Controller implements ActionListener, KeyListener {
+public class Controller extends GamePanel implements ActionListener, KeyListener {
 	Timer timer;
 	GameObject object;
 	GamePanel view;
@@ -25,6 +25,9 @@ public class Controller implements ActionListener, KeyListener {
 
 	public void startGame() {
 		timer.start();
+		if (object.collisionBox.intersects(coin.collisionBox) == true) {
+			timer.restart();
+		}
 	}
 public void ghostUpdate (){
 
@@ -99,7 +102,7 @@ public void movingPacman(KeyEvent e){
 		if (countDown% 60 == 0) {
 			view.countdownTimer();
 		}
-		if (countDown > 20*60) {
+		if (countDown > 25*60) {
 			System.exit(0);
 			
 		}

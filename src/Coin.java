@@ -17,5 +17,6 @@ this.collisionBox.setBounds(x, y, widthc, heightc);
 }
 void draw (Graphics g){
 	g.drawImage(GamePanel.CoinImg, x, y, widthc, heightc, null);
+
 }
 }
