@@ -7,10 +7,12 @@ public class Cherry extends GameObject{
 	public Cherry (int x, int y){
 		this.x = x;
 		this.y = y;
-		
+		collisionBox = new Rectangle(x, y, widthe, heighte);
 
 	} 
-	
+	void update(){
+		this.collisionBox.setBounds(x, y, widthe, heighte);	
+		}
 	void draw (Graphics g){
 		g.drawImage(GamePanel.CherryImg, x, y, widthe, heighte, null);
 

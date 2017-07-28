@@ -117,7 +117,7 @@ public void drawingGhost(Graphics g){
 	}
 public void update(){
 	coinCollision();
-	
+	cherryCollision();
 	
 	if (ghost1.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
@@ -189,7 +189,7 @@ public void update(){
 			return false;
 		}
 	}
-	void countdownTimer (){
+	void  (){
 		timerCountDown -= 1;
 	}
 	void displayTimer(Graphics g){

@@ -25,9 +25,7 @@ public class Controller extends GamePanel implements ActionListener, KeyListener
 
 	public void startGame() {
 		timer.start();
-		if (object.collisionBox.intersects(coin.collisionBox) == true) {
-			timer.restart();
-		}
+		
 	}
 public void ghostUpdate (){
 
@@ -108,6 +106,7 @@ public void movingPacman(KeyEvent e){
 		}
 		if (view.coinCollision()) {
 			countDown = 0;
+			view.timerCountDown = 25;
 		}
 	}
 

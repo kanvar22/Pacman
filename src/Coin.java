@@ -2,8 +2,8 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Coin extends GameObject{
-final int widthc = 100;
-final int heightc = 100;
+final int widthc = 30;
+final int heightc = 30;
 boolean isAlive = false;
 public Coin (int x, int y){
 	this.x = x;
