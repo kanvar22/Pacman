@@ -15,7 +15,7 @@ public class GameObject {
 		height = 100;
 	}
 	void update(){
-	
+		this.collisionBox.setBounds(x, y, width, height);	
 	}
 	void draw(Graphics g){
 		//g.fillRect(x, y, width, height);

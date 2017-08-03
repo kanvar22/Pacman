@@ -33,11 +33,11 @@ public class GamePanel extends JPanel {
 	Ghost ghost8;
 	Ghost ghost9;
 	Ghost ghost10;
-	Ghost ghost11;
-	Ghost ghost12;
-	Ghost ghost13;
-	Ghost ghost14;
-	Ghost ghost15;
+//	Ghost ghost11;
+//	Ghost ghost12;
+//	Ghost ghost13;
+//	Ghost ghost14;
+//	Ghost ghost15;
 	Coin coin;
 	Cherry cherry;
 	int mazeHeight = 488 - Ghost.heightG;
@@ -56,11 +56,11 @@ public void ghosts(){
 	ghost8 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
 	ghost9 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
 	ghost10 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
-	ghost11 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
-	ghost12 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
-	ghost13 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
-	ghost14 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
-	ghost15 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+//	ghost11 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+//	ghost12 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+//	ghost13 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+//	ghost14 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
+//	ghost15 = new Ghost(new Random().nextInt(spawnPoint) + spawnPoint, new Random().nextInt(mazeHeight));
 	
 }
 	public GamePanel(){
@@ -97,11 +97,11 @@ public void drawingGhost(Graphics g){
 	ghost8.draw(g);
 	ghost9.draw(g);
 	ghost10.draw(g);
-	ghost11.draw(g);
-	ghost12.draw(g);
-	ghost13.draw(g);
-	ghost14.draw(g);
-	ghost15.draw(g);
+//	ghost11.draw(g);
+//	ghost12.draw(g);
+//	ghost13.draw(g);
+//	ghost14.draw(g);
+//	ghost15.draw(g);
 }
 	public void paintComponent(Graphics g){
 		g.setColor(Color.black);
@@ -117,68 +117,68 @@ public void drawingGhost(Graphics g){
 	}
 public void update(){
 	coinCollision();
-	cherryCollision();
+	//cherryCollision();
 	
 	if (ghost1.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called1");
+		
 	}
 	if (ghost2.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called2");
+		
 	}
 	if (ghost3.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called3");
+		
 	}
 	if (ghost4.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called4");
+		
 	}
 	if (ghost5.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called5");
+		
 	}
 	if (ghost6.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called6");
+		
 	}
 	if (ghost7.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called7");
+		
 	}
 	if (ghost8.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called8");
+		
 	}
 	if (ghost9.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called9");
+
 	}
 	if (ghost10.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
-		System.out.println("Called10");
+		
 	}
-	if (ghost11.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
-		System.out.println("Called11");
-	}
-	if (ghost12.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
-		System.out.println("Called12");
-	}
-	if (ghost13.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
-		System.out.println("Called13");
-	}
-	if (ghost14.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
-		System.out.println("Called14");
-	}
-	if (ghost15.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
-		System.out.println("Called15");
-	}
+//	if (ghost11.collisionBox.intersects(object.collisionBox)) {
+//		object.isAlive = false;
+//		System.out.println("Called11");
+//	}
+//	if (ghost12.collisionBox.intersects(object.collisionBox)) {
+//		object.isAlive = false;
+//		System.out.println("Called12");
+//	}
+//	if (ghost13.collisionBox.intersects(object.collisionBox)) {
+//		object.isAlive = false;
+//		System.out.println("Called13");
+//	}
+//	if (ghost14.collisionBox.intersects(object.collisionBox)) {
+//		object.isAlive = false;
+//		System.out.println("Called14");
+//	}
+//	if (ghost15.collisionBox.intersects(object.collisionBox)) {
+//		object.isAlive = false;
+//		System.out.println("Called15");
+//	}
 	
 }
 	boolean coinCollision(){
@@ -189,7 +189,7 @@ public void update(){
 			return false;
 		}
 	}
-	void  (){
+	void countdownTimer (){
 		timerCountDown -= 1;
 	}
 	void displayTimer(Graphics g){

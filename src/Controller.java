@@ -1,7 +1,11 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 import javax.swing.Timer;
 
@@ -10,6 +14,7 @@ public class Controller extends GamePanel implements ActionListener, KeyListener
 	GameObject object;
 	GamePanel view;
 	int countDown = 0;
+	int points = 0;
 
 	public Controller() {
 		timer = new Timer(1000 / 60, this);
@@ -39,11 +44,12 @@ public void ghostUpdate (){
 	view.ghost8.update();
 	view.ghost9.update();
 	view.ghost10.update();
-	view.ghost11.update();
-	view.ghost12.update();
-	view.ghost13.update();
-	view.ghost14.update();
-	view.ghost15.update();
+//	view.ghost11.update();
+//	view.ghost12.update();
+//	view.ghost13.update();
+//	view.ghost14.update();
+//	view.ghost15.update();
+	
 }
 public void trackPacman(){
 	view.ghost1.findPlayer(object.x, object.y);
@@ -56,11 +62,11 @@ public void trackPacman(){
 	view.ghost8.findPlayer(object.x, object.y);
 	view.ghost9.findPlayer(object.x, object.y);
 	view.ghost10.findPlayer(object.x, object.y);
-	view.ghost11.findPlayer(object.x, object.y);
-	view.ghost12.findPlayer(object.x, object.y);
-	view.ghost13.findPlayer(object.x, object.y);
-	view.ghost14.findPlayer(object.x, object.y);
-	view.ghost15.findPlayer(object.x, object.y);
+//	view.ghost11.findPlayer(object.x, object.y);
+//	view.ghost12.findPlayer(object.x, object.y);
+//	view.ghost13.findPlayer(object.x, object.y);
+//	view.ghost14.findPlayer(object.x, object.y);
+//	view.ghost15.findPlayer(object.x, object.y);
 }
 public void movingPacman(KeyEvent e){
 	if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -88,10 +94,16 @@ public void movingPacman(KeyEvent e){
 		Player.left = false;
 	}
 }
+void displayPoints(Graphics g){
+	g.setColor(Color.WHITE);
+	g.setFont(new Font("Arial", Font.BOLD, 20));
+	g.drawString("" + points, 880, 30);
+}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		object.update();
+		view.coin.update();
 		ghostUpdate();
 		trackPacman();
 		view.repaint();
@@ -107,6 +119,11 @@ public void movingPacman(KeyEvent e){
 		if (view.coinCollision()) {
 			countDown = 0;
 			view.timerCountDown = 25;
+			view.coin.x = new Random().nextInt(mazeWidth);
+			view.coin.y = new Random().nextInt(mazeHeight);
+			points = points + 10;
+			
+			
 		}
 	}
 
