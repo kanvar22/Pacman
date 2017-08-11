@@ -8,6 +8,7 @@ public class GameObject {
 	int height;
 	boolean isAlive = true;
 	boolean coinCollision = false;
+	boolean cherryCollision = false;
 	Rectangle collisionBox;
 	
 	public GameObject(){

@@ -14,7 +14,7 @@ public class Controller extends GamePanel implements ActionListener, KeyListener
 	GameObject object;
 	GamePanel view;
 	int countDown = 0;
-	int points = 0;
+	
 
 	public Controller() {
 		timer = new Timer(1000 / 60, this);
@@ -33,7 +33,7 @@ public class Controller extends GamePanel implements ActionListener, KeyListener
 		
 	}
 public void ghostUpdate (){
-
+	
 	view.ghost1.update();
 	view.ghost2.update();
 	view.ghost3.update();
@@ -94,16 +94,13 @@ public void movingPacman(KeyEvent e){
 		Player.left = false;
 	}
 }
-void displayPoints(Graphics g){
-	g.setColor(Color.WHITE);
-	g.setFont(new Font("Arial", Font.BOLD, 20));
-	g.drawString("" + points, 880, 30);
-}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		object.update();
 		view.coin.update();
+		view.cherry.update();
 		ghostUpdate();
 		trackPacman();
 		view.repaint();
@@ -121,11 +118,15 @@ void displayPoints(Graphics g){
 			view.timerCountDown = 25;
 			view.coin.x = new Random().nextInt(mazeWidth);
 			view.coin.y = new Random().nextInt(mazeHeight);
-			points = points + 10;
-			
+			view.points = view.points + 10;
 			
 		}
-	}
+		if(view.cherryCollision()){
+			view.cherry.x = new Random().nextInt(mazeWidth);
+			view.cherry.y = new Random().nextInt(mazeHeight);
+			view.points = view.points + 10;
+		}
+		}
 
 	@Override
 	public void keyTyped(KeyEvent e) {

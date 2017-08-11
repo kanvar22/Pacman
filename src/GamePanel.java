@@ -44,6 +44,7 @@ public class GamePanel extends JPanel {
 	int mazeWidth = 961   - Ghost.widthG;
 	int spawnPoint = mazeWidth/2;
 	int timerCountDown = 25;
+	int points = 0;
 	
 public void ghosts(){
 	ghost1 = new Ghost(500, 230);
@@ -114,10 +115,12 @@ public void drawingGhost(Graphics g){
 		coin.draw(g);
 		displayTimer(g);
 		cherry.draw(g);
+		displayPoints(g);
 	}
 public void update(){
-	coinCollision();
-	//cherryCollision();
+//	coinCollision();
+//	
+//	cherryCollision();
 	
 	if (ghost1.collisionBox.intersects(object.collisionBox)) {
 		object.isAlive = false;
@@ -181,6 +184,7 @@ public void update(){
 //	}
 	
 }
+	
 	boolean coinCollision(){
 		if (object.collisionBox.intersects(coin.collisionBox)) {
 			return true;
@@ -196,7 +200,21 @@ public void update(){
 		
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Arial", Font.BOLD, 20));
-		g.drawString("" + timerCountDown, 880, 30);
+		g.drawString("Time Left:" + timerCountDown, 830, 30);
 		
 	}
+	void displayPoints(Graphics g){
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Arial", Font.BOLD, 20));
+		g.drawString("Points:" + points, 730, 30);
+	}
+	boolean cherryCollision(){
+		if (object.collisionBox.intersects(cherry.collisionBox)) {
+			return true;
+		}	
+		else {
+			return false;
+		}
+	}
+
 }

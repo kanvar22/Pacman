@@ -1,5 +1,6 @@
 
 
+
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,6 +22,7 @@ public class ObjectManager {
 	}
 
 	public void update() {
+		getScore();
 		for (int i = 0; i < objects.size(); i++) {
 			GameObject o = objects.get(i);
 			o.update();
