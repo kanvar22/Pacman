@@ -11,9 +11,10 @@ import javax.swing.Timer;
 
 public class Controller extends GamePanel implements ActionListener, KeyListener {
 	Timer timer;
-	GameObject object;
+	Player player;
 	GamePanel view;
 	int countDown = 0;
+	int speedTime;
 	
 
 	public Controller() {
@@ -24,7 +25,7 @@ public class Controller extends GamePanel implements ActionListener, KeyListener
 
 	public Controller(GamePanel view) {
 		this();
-		object = view.object;
+		player = view.player;
 		this.view = view;
 	}
 
@@ -52,16 +53,16 @@ public void ghostUpdate (){
 	
 }
 public void trackPacman(){
-	view.ghost1.findPlayer(object.x, object.y);
-	view.ghost2.findPlayer(object.x, object.y);
-	view.ghost3.findPlayer(object.x, object.y);
-	view.ghost4.findPlayer(object.x, object.y);
-	view.ghost5.findPlayer(object.x, object.y);
-	view.ghost6.findPlayer(object.x, object.y);
-	view.ghost7.findPlayer(object.x, object.y);
-	view.ghost8.findPlayer(object.x, object.y);
-	view.ghost9.findPlayer(object.x, object.y);
-	view.ghost10.findPlayer(object.x, object.y);
+	view.ghost1.findPlayer(player.x, player.y);
+	view.ghost2.findPlayer(player.x, player.y);
+	view.ghost3.findPlayer(player.x, player.y);
+	view.ghost4.findPlayer(player.x, player.y);
+	view.ghost5.findPlayer(player.x, player.y);
+	view.ghost6.findPlayer(player.x, player.y);
+	view.ghost7.findPlayer(player.x, player.y);
+	view.ghost8.findPlayer(player.x, player.y);
+	view.ghost9.findPlayer(player.x, player.y);
+	view.ghost10.findPlayer(player.x, player.y);
 //	view.ghost11.findPlayer(object.x, object.y);
 //	view.ghost12.findPlayer(object.x, object.y);
 //	view.ghost13.findPlayer(object.x, object.y);
@@ -98,7 +99,7 @@ public void movingPacman(KeyEvent e){
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		object.update();
+		player.update();
 		view.coin.update();
 		view.cherry.update();
 		ghostUpdate();
@@ -125,6 +126,13 @@ public void movingPacman(KeyEvent e){
 			view.cherry.x = new Random().nextInt(mazeWidth);
 			view.cherry.y = new Random().nextInt(mazeHeight);
 			view.points = view.points + 10;
+			player.speed = 2;
+			speedTime = view.timerCountDown - 15;
+			
+		}
+		
+		if (speedTime == countDown) {
+		player.speed = 1;	
 		}
 		}
 

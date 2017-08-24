@@ -12,7 +12,7 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
+import javax.swing.ImageIcon;
 public class GamePanel extends JPanel {
 	
 	public static BufferedImage GhostImg;
@@ -21,7 +21,7 @@ public class GamePanel extends JPanel {
 	public static BufferedImage WallImg;
 	public static BufferedImage CoinImg;
 	public static BufferedImage CherryImg;
-	GameObject object;
+	Player player;
 	ObjectManager manager;
 	Ghost ghost1;
 	Ghost ghost2;
@@ -79,7 +79,7 @@ public void ghosts(){
 			e.printStackTrace();
 		}
 		
-		object = new Player();
+		player = new Player();
 		manager = new ObjectManager();
 		//System.out.println("width"+ MazeImg.getWidth());
 		ghosts();
@@ -110,7 +110,7 @@ public void drawingGhost(Graphics g){
 		//g.drawImage(GamePanel.WallImg, 10, 510, 10, 10, null);
 		//g.drawImage(GhostImg, 100, 80, 20, 20, null);
 		//g.drawImage(pacmanImg, 10, 10, 2, 2, null);
-		object.draw(g);
+		player.draw(g);
 		drawingGhost(g);
 		coin.draw(g);
 		displayTimer(g);
@@ -122,44 +122,44 @@ public void update(){
 //	
 //	cherryCollision();
 	
-	if (ghost1.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost1.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
-	if (ghost2.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost2.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
-	if (ghost3.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost3.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
-	if (ghost4.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost4.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
-	if (ghost5.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost5.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
-	if (ghost6.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost6.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
-	if (ghost7.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost7.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
-	if (ghost8.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost8.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
-	if (ghost9.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost9.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 
 	}
-	if (ghost10.collisionBox.intersects(object.collisionBox)) {
-		object.isAlive = false;
+	if (ghost10.collisionBox.intersects(player.collisionBox)) {
+		player.isAlive = false;
 		
 	}
 //	if (ghost11.collisionBox.intersects(object.collisionBox)) {
@@ -186,7 +186,7 @@ public void update(){
 }
 	
 	boolean coinCollision(){
-		if (object.collisionBox.intersects(coin.collisionBox)) {
+		if (player.collisionBox.intersects(coin.collisionBox)) {
 			return true;
 		}	
 		else {
@@ -209,7 +209,7 @@ public void update(){
 		g.drawString("Points:" + points, 730, 30);
 	}
 	boolean cherryCollision(){
-		if (object.collisionBox.intersects(cherry.collisionBox)) {
+		if (player.collisionBox.intersects(cherry.collisionBox)) {
 			return true;
 		}	
 		else {

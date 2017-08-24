@@ -13,7 +13,7 @@ public static boolean up = false;
  //size
  final int widthP = 8;
  final int heightP = 8;
-
+public int speed = 1;
 //Regular boolean for color detection
 boolean inBoundsFL = true;
 boolean inBoundsFR = true;
@@ -141,19 +141,19 @@ boolean inBoundsFM = true;
 		
 		//Movement of Pacman
 		if (up == true) {
-			y = y - 1;
+			y = y - speed;
 		}
 		if (down == true) {
 			
-			y = y + 1;
+			y = y + speed;
 		}
 		if (left == true) {
 			
-			x = x - 1;
+			x = x - speed;
 		}
 		if (right == true) {
 			
-			x = x + 1;
+			x = x + speed;
 		}
 		//Variables for color detection
 		inBoundsFL = true;
